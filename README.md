@@ -47,4 +47,5 @@ Sources and inspirations :
 - https://github.com/HalloSpaceBoy5/PicoBoy
 - https://github.com/MLXXXp/Arduboy2
 - https://github.com/peterhinch
+- https://github.com/mchobby
 - and more....
