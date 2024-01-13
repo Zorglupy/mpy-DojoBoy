@@ -12,7 +12,7 @@ The main objectives of the project are:
   - v 2.0 (WIP): Module with libraries (multiple objects) : object oriented coding, vector methods, extended features...
 
 # Hardware
-
+<img src="https://github.com/Zorglupy/DojoBoy/blob/main/making/case/DojoBoy.Top.PNG" width=25% height=25%>
 Multiple platforms are compatible/available:
 - Raspeberry Pi Pico or Pico W board and RP2040 clones
 - LILYGO® T8 V1.7.1 ESP32 board.
@@ -31,13 +31,14 @@ Specs:
 - SD card
 - 3D Printable case
 
-# Software
-
-<img src="https://github.com/Zorglupy/DojoBoy/blob/main/making/case/DojoBoy.Top.PNG" width=25% height=25%>
-
 Schema :
 
 WIP
+
+# Software
+
+See Doc folder... 
+
 
 Sources and inspirations :
 
