@@ -37,7 +37,7 @@ Specs:
 
 Schema :
 
-![DojoBoy-Wiring_analog-joy](https://github.com/Zorglupy/DojoBoy/assets/16744276/4a34c69e-ab44-458b-a20c-59948ac5beed)
+WIP
 
 Sources and inspirations :
 
