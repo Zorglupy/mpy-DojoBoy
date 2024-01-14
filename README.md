@@ -35,7 +35,7 @@ Specs:
 
 Schema :
 
-WIP
+![DojoBoy-Wiring-Amp-Speaker-V1_bb](https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/05d0cc45-c0f5-429b-8d08-684306b9630e)
 
 # Software
 
