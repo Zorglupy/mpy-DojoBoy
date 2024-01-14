@@ -1,5 +1,6 @@
 # DojoBoy
-<img src="https://github.com/Zorglupy/DojoBoy/assets/16744276/fda8a7f1-d7f9-4e1a-b42d-519674a0cf89" width=25% height=25%>
+
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/8284801b-4264-400b-b358-bb4537fcae4f" width=25% height=25%>
 
 The DojoBoy console is a DIY handheld game console project based on MicroPython
 
@@ -12,7 +13,8 @@ The main objectives of the project are:
   - v 2.0 (WIP): Module with libraries (multiple objects) : object oriented coding, vector methods, extended features...
 
 # Hardware
-<img src="https://github.com/Zorglupy/DojoBoy/blob/main/making/case/DojoBoy.Top.PNG" width=25% height=25%>
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/6af610f2-0df6-44a8-a510-cb54990d71cd" width=25% height=25%>
+
 Multiple platforms are compatible/available:
 - Raspeberry Pi Pico or Pico W board and RP2040 clones
 - LILYGO® T8 V1.7.1 ESP32 board.
