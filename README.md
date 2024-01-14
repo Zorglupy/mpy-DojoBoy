@@ -39,7 +39,7 @@ WIP
 
 # Software
 
-See Doc folder... 
+See Cheat Sheet file in Doc folder... 
 
 
 Sources and inspirations :
