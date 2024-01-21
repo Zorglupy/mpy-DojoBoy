@@ -1,5 +1,6 @@
 # DojoBoy
-<img src="https://github.com/Zorglupy/DojoBoy/assets/16744276/fda8a7f1-d7f9-4e1a-b42d-519674a0cf89" width=25% height=25%>
+
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/8284801b-4264-400b-b358-bb4537fcae4f" width=25% height=25%>
 
 The DojoBoy console is a DIY handheld game console project based on MicroPython
 
@@ -12,6 +13,7 @@ The main objectives of the project are:
   - v 2.0 (WIP): Module with libraries (multiple objects) : object oriented coding, vector methods, extended features...
 
 # Hardware
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/6af610f2-0df6-44a8-a510-cb54990d71cd" width=25% height=25%>
 
 Multiple platforms are compatible/available:
 - Raspeberry Pi Pico or Pico W board and RP2040 clones
@@ -31,13 +33,46 @@ Specs:
 - SD card
 - 3D Printable case
 
-# Software
-
-<img src="https://github.com/Zorglupy/DojoBoy/blob/main/making/case/DojoBoy.Top.PNG" width=25% height=25%>
-
 Schema :
 
-WIP
+![DojoBoy-Wiring-Amp-Speaker-V1_bb](https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/05d0cc45-c0f5-429b-8d08-684306b9630e)
+
+|   Raspberry Pi Pico GPIO   |   Items Pin    |
+|---    |:-:    |
+|   GPIO00   |   A Button  |
+|   GPIO01   |   B Button  |
+|   GPIO02   |   X Button  |
+|   GPIO03   |   Y Button  |
+|   GPIO04   |   Ext Port - I2C 0 SDA |
+|   GPIO05   |   Ext Port - I2C 0 SCL |
+|   GPIO06   |   Home Button  |
+|   GPIO07   |   Start Button  |
+|   GPIO08   |   Volume Button  |
+|   GPIO09   |   Menu Button  |
+|   GPIO10   |   Ext Port - I2C 1 SDA  |
+|   GPIO11   |   Ext Port - I2C 1 SCL  |
+|   GPIO12   |   Display - SPI 1 A0 / DC  |
+|   GPIO13   |   Display - SPI 1 CS  |
+|   GPIO14   |   Display - SPI 1 SCK / CLK  |
+|   GPIO15   |   Display - SPI 1 MOSI  |
+|   GPIO16   |   Ext Port - SPI 0 MISO  |
+|   GPIO17   |   Ext Port - SPI 0 CS  |
+|   GPIO18   |   Ext Port - SPI 0 SCK / CLK  |
+|   GPIO19   |   Ext Port - SPI 0 MOSI  |
+|   GPIO20   |   Display - RST / Reset  |
+|   GPIO21   |   PWM Sound Channel 0  |
+|   GPIO22   |   PWM Sound Channel 1  |
+|   GPIO26   |   Joystick X  |
+|   GPIO27   |   Joystick Y  |
+|   GPIO28   |   Display - LED  |
+|   3.3V   |   Output 3.3V Power  |
+|   VSYS   |   Input 5V Power from Bat. Charger  |
+|   VBUS   |   Output 5V Power to Bat. Charger  |
+
+# Software
+
+See Cheat Sheet file in Doc folder... 
+
 
 Sources and inspirations :
 
