@@ -4,7 +4,7 @@
 # Modified By Yoyo Zorglup for the DojoBoy 2023 12 25
 #
 
-from dojoboy_v1.dojoboy import DojoBoy
+from dojoboy_v1 import DojoBoy
 
 from machine import Timer
 import math

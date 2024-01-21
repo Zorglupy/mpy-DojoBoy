@@ -3,9 +3,9 @@
 
 import random
 
-from dojoboy_v1.dojoboy import DojoBoy
+from dojoboy_v1 import DojoBoy
 
-djb = DojoBoy(show_intro=False,width=160,height=128,framerate=30)
+djb = DojoBoy(show_intro=True,width=160,height=128,framerate=30)
 
 djb.free_mem()
 

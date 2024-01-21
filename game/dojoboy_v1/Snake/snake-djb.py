@@ -4,7 +4,7 @@
 # Modified by Yoyo Zorglup for DojoBoy 2023 12 25
 #
 
-from dojoboy_v1.dojoboy import DojoBoy
+from dojoboy_v1 import DojoBoy
 from time import sleep_ms,ticks_ms, ticks_us, ticks_diff
 from random import randint
 

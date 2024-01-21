@@ -4,7 +4,7 @@
 
 from time import sleep_ms
 from random import randint
-from dojoboy import DojoBoy
+from dojoboy_v1 import DojoBoy
 
 djb = DojoBoy()
 

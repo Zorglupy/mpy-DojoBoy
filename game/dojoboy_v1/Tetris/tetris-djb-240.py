@@ -2,7 +2,7 @@
 # Modified By HalloSpaceBoy for the PicoBoy
 # Modified By Yoyo Zorglup for DojoBoy 25 12 2023
 from micropython import const
-from dojoboy_v1.dojoboy import DojoBoy
+from dojoboy_v1 import DojoBoy
 import time
 import os
 from random import randint

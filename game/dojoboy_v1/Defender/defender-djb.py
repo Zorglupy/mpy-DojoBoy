@@ -1,6 +1,6 @@
 #from LCD_1inch14 import LCD_1inch14
 # all display, buttons, sound logics are in dojoboy.py module
-from dojoboy_v1.dojoboy import DojoBoy
+from dojoboy_v1 import DojoBoy
 
 from machine import Pin,SPI,PWM, Timer
 import framebuf, math

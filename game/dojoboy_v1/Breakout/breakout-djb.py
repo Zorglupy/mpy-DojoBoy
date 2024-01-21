@@ -7,7 +7,7 @@
 from time import sleep_ms,ticks_ms, ticks_diff
 from math import sqrt
 from random import randint
-from dojoboy_v1.dojoboy import DojoBoy
+from dojoboy_v1 import DojoBoy
 
 djb = DojoBoy(show_intro=True,width=160,height=128,framerate=30)
 
@@ -45,16 +45,19 @@ class Ball(object):
 
     def clear(self):
         """Clear ball."""
-        self.display.rect(self.x, self.y, self.width, self.height, djb.display.BLACK, True)
+        #self.display.rect(self.x, self.y, self.width, self.height, djb.display.BLACK, True)
+        self.display.ellipse( self.x, self.y, self.width//2, self.height//2, djb.display.BLACK, True)
 
     def clear_previous(self):
         """Clear prevous ball position."""
-        self.display.rect(self.prev_x, self.prev_y, self.width, self.height, djb.display.BLACK, True)
+        #self.display.rect(self.prev_x, self.prev_y, self.width, self.height, djb.display.BLACK, True)
+        self.display.ellipse( self.prev_x, self.prev_y, self.width//2, self.height//2, djb.display.BLACK, True)
 
     def draw(self):
         """Draw ball."""
         self.clear_previous()
-        self.display.rect( self.x, self.y, self.width, self.height, djb.display.RED_H, True)
+        #self.display.rect( self.x, self.y, self.width, self.height, djb.display.RED_H, True)
+        self.display.ellipse( self.x, self.y, self.width//2, self.height//2, djb.display.RED_H, True)
 
     def set_position(self, paddle_x, paddle_y, paddle_x2, paddle_center):
         bounced = False
