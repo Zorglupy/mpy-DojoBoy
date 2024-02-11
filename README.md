@@ -34,8 +34,7 @@ Specs:
 - 3D Printable case
 
 Schema :
-
-![DojoBoy-Wiring-Amp-Speaker-V1_bb](https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/05d0cc45-c0f5-429b-8d08-684306b9630e)
+![DojoBoy-Wiring-Amp-Speaker-V2_bb](https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/4e23aab9-eace-49b9-a9eb-817327e22c71)
 
 |   Raspberry Pi Pico GPIO   |   Items Pin    |
 |---    |:-:    |
