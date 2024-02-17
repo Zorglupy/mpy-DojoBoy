@@ -13,7 +13,12 @@ The main objectives of the project are:
   - v 2.0 (WIP): Module with libraries (multiple objects) : object oriented coding, vector methods, extended features...
 
 # Hardware
-<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/6af610f2-0df6-44a8-a510-cb54990d71cd" width=25% height=25%>
+
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/63dccd4c-1430-4176-8b23-09c935013c73" width=25% height=25%>
+
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/0bce85a9-2f75-4a5d-9551-2c950479773f" width=25% height=25%>
+
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/db87cc7b-a7bd-485a-bdb4-16f4f27d24f4" width=25% height=25%>
 
 Multiple platforms are compatible/available:
 - Raspeberry Pi Pico or Pico W board and RP2040 clones
@@ -67,6 +72,10 @@ Schema :
 |   3.3V   |   Output 3.3V Power  |
 |   VSYS   |   Input 5V Power from Bat. Charger  |
 |   VBUS   |   Output 5V Power to Bat. Charger  |
+
+# Wiring
+
+![DojoBoy-Board-V1_bb](https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/791d6b58-fcc2-4fdd-84e0-f23f8cbee706)
 
 # Software
 
