@@ -1300,7 +1300,7 @@ def eraseEEPROM():
 
 ################################
 
-djb.display.load_image('jetpacloading.bin')
+djb.display.load_image('game/jetpacloading.bin')
 djb.display.show()
 sleep_ms(1000)
 initialiseRocket()

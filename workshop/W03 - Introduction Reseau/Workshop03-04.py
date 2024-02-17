@@ -13,8 +13,8 @@ wifi = djbNetwork.Network()
 
 wifi.mode = wifi.STATION
 
-wifi.ssid = '24'
-wifi.password = 'zorghome'
+wifi.ssid = 'My Wifi'
+wifi.password = 'Wifi_Password'
 
 wifi.data_link_buf = 1024
 
