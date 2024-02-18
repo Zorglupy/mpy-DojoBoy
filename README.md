@@ -16,9 +16,9 @@ The main objectives of the project are:
 
 <img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/63dccd4c-1430-4176-8b23-09c935013c73" width=25% height=25%>
 
-<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/0bce85a9-2f75-4a5d-9551-2c950479773f" width=25% height=25%>
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/0402df7e-3315-418d-82bb-ce683e5ca332" width=25% height=25%>
 
-<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/db87cc7b-a7bd-485a-bdb4-16f4f27d24f4" width=25% height=25%>
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/a37bfab0-d312-4492-a781-a8dcb16fe17f" width=25% height=25%>
 
 Multiple platforms are compatible/available:
 - Raspeberry Pi Pico or Pico W board and RP2040 clones
