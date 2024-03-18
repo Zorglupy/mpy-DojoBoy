@@ -5,23 +5,19 @@
 The DojoBoy console is a DIY handheld game console project based on MicroPython
 
 The main objectives of the project are:
-- Cheap and easy to make with common components (no exotic components or custom PCB)
+- Cheap and easy to make with common components (no exotic components, custom PCB or universal PCB)
 - Simple assembly with reduced tooling (soldering iron, screwdriver, Dremel tool)
-- Easy printing of the case (3 parts only without supports)
+- Easy printing of the case (5 parts only without supports)
 - Game coding easy with only MicroPython libraries (no custom C codes, orginal MicroPython image based)
   - v 1.0 : All In One library
   - v 2.0 (WIP): Module with libraries (multiple objects) : object oriented coding, vector methods, extended features...
 
 # Hardware
 
-<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/63dccd4c-1430-4176-8b23-09c935013c73" width=25% height=25%>
-
-<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/0402df7e-3315-418d-82bb-ce683e5ca332" width=25% height=25%>
-
-<img src="https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/a37bfab0-d312-4492-a781-a8dcb16fe17f" width=25% height=25%>
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/blob/main/making/DojoBoy-Model%20A-Front.PNG" width=25% height=25%><img src="https://github.com/Zorglupy/mpy-DojoBoy/blob/main/making/DojoBoy-Model%20A-Inside.PNG" width=25% height=25%><img src="https://github.com/Zorglupy/mpy-DojoBoy/blob/main/making/DojoBoy-Model%20A-Inside%20Bottom.PNG" width=25% height=25%>
 
 Multiple platforms are compatible/available:
-- Raspeberry Pi Pico or Pico W board and RP2040 clones
+- Raspberry Pi Pico or Pico W board and RP2040 clones
 - LILYGO® T8 V1.7.1 ESP32 board.
 - VCC-GND Studio YD-ESP32-S3 (DevKitC 1 clone)
 
@@ -32,9 +28,9 @@ Specs:
   - ILI9341 320x240 3.2"
   - SSD1309 128x64 2.42"
 - LiPo battery with charge management
-- Joystick or directional buttons + 8 buttons
+- Joystick + 8 buttons
 - 2 beeper channels (PWM)
-- Expansion port (I2C, GPIO, I2S)
+- Expansion port (I2C, GPIO, I2S, SPI)
 - SD card
 - 3D Printable case
 
@@ -76,6 +72,9 @@ Schema :
 # Wiring
 
 ![DojoBoy-Board-V1_bb](https://github.com/Zorglupy/mpy-DojoBoy/assets/16744276/791d6b58-fcc2-4fdd-84e0-f23f8cbee706)
+
+# PCB
+<img src="https://github.com/Zorglupy/mpy-DojoBoy/blob/main/making/PCB/PCB_PCB_DojoBoy-Model-A-Mainboard_2024-03-18.png" width=30% height=30%><img src="https://github.com/Zorglupy/mpy-DojoBoy/blob/main/making/PCB/PCB_PCB_DojoBoy-Model-A-Keyboard_2024-03-18.png" width=30% height=30%>
 
 # Software
 
