@@ -3,7 +3,7 @@
 # Modified By HalloSpaceBoy for the PicoBoy
 # Modified By Yoyo Zorglup for the DojoBoy
 #
-#   DojoBoy Standard Library v1.0 13/01/24
+#   DojoBoy Standard Library v1.0 14/01/24
 #
 
 from machine import Pin, PWM, Timer, ADC
@@ -12,7 +12,7 @@ from time import sleep_ms, ticks_ms, ticks_diff
 from os import uname
 from micropython import const
 
-__version__ = "v1.0 13/01/24"
+__version__ = "v1.0 14/01/24"
 
 
 #
@@ -23,6 +23,7 @@ _MOSI       = const(15)
 _DC         = const(12)
 _CS         = const(13)
 _BL         = const(28)
+_RST        = const(20)
 _B_A        = const(0)
 _B_B        = const(1)
 _B_X        = const(2)
@@ -54,6 +55,7 @@ _MOSI       = const(23)
 _DC         = const(21)
 _CS         = const(5)
 _BL         = const(14)
+_RST        = const(??)
 _B_A        = const(32)
 _B_B        = const(33)
 _B_X        = const(12)
@@ -84,6 +86,7 @@ _MOSI       = const(11)
 _DC         = const(12)
 _CS         = const(10)
 _BL         = const(3)
+_RST        = const(??)
 _B_A        = const(4)
 _B_B        = const(5)
 _B_X        = const(6)
@@ -245,7 +248,7 @@ class DojoBoy():
         print("DojoBoy Module:",__version__)
         
         self.display = Display(width=width, height=height, id_=1, sck=_SCK, mosi=_MOSI,
-                        dc=_DC, cs=_CS, bl=_BL, baudrate=_LCD_BAUDRATE, framerate=framerate)
+                        dc=_DC, cs=_CS, rst=_RST, bl=_BL, baudrate=_LCD_BAUDRATE, framerate=framerate)
         
         #
         #   Analog Controls
@@ -302,6 +305,14 @@ class DojoBoy():
         self.__button_volume = Pin(_B_VOLUME, Pin.IN, Pin.PULL_UP)
         self.__button_menu = Pin(_B_MENU, Pin.IN, Pin.PULL_UP)
         
+        self.btnUval = 0
+        self.btnDval = 0
+        self.btnLval = 0
+        self.btnRval = 0
+        
+        self.btns = 0
+        self.lastBtns = 0
+        
         self.__buzzer = [PWM(Pin(_CH_BEEP_0)), PWM(Pin(_CH_BEEP_1))]
         
         self.vol = [6, (self.max_vol//2) + 1]
@@ -331,13 +342,7 @@ class DojoBoy():
         self.bequiet(0)
         self.bequiet(1)
                      
-        self.btnUval = 0
-        self.btnDval = 0
-        self.btnLval = 0
-        self.btnRval = 0
-        
-        self.btns = 0
-        self.lastBtns = 0
+
         
         if show_intro:
             self.show_start_screen()
