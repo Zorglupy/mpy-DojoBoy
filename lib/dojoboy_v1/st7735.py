@@ -1,7 +1,7 @@
 #
 # MicroPython ST7789 TFT Display driver, SPI interfaces for DojoBoy
 #
-# Display Driver for DojoBoy V1.0 13/01/24
+# Display Driver for DojoBoy V1.1 25/12/24
 #
 
 from micropython import const
@@ -11,7 +11,7 @@ from framebuf import RGB565
 from time import sleep_ms
 import gc
 
-__version__ = "1.0 13/01/24"
+__version__ = "1.1 25/12/24"
 __repo__ = "https://github.com/zorglupy/dojoboy"
 
 # register definitions
@@ -64,12 +64,13 @@ GMCTRN1   = const(b'\xE1')
 class Display(djbFrameBuffer):
     
     def __init__(self, width=160, height=128, id_=1, sck=14, mosi=15,
-                 dc=12, cs=13, rst=20, bl=28, baudrate=40_000_000, framerate=30):
+                 dc=12, cs=13, bl=28, baudrate=40_000_000, framerate=30):
+#                 dc=12, cs=13, rst=20, bl=28, baudrate=40_000_000, framerate=30):
         self.width = width
         self.height = height
         self._spi = SPI(id_, sck=Pin(sck), mosi=Pin(mosi), baudrate=baudrate, polarity=0, phase=0)
         self._dc = Pin(dc, Pin.OUT)
-        self._rst = Pin(rst, Pin.OUT)
+        #self._rst = Pin(rst, Pin.OUT)
         self._cs = Pin(cs, Pin.OUT)
         self._bl = Pin(bl, Pin.OUT)
         
@@ -98,13 +99,13 @@ class Display(djbFrameBuffer):
         self._bl(0) # Turn backlight off initially to avoid nasty surprises
         
         # Hardware reset
-        self._dc(0)
-        self._rst(1)
-        sleep_ms(1)
-        self._rst(0)
-        sleep_ms(1)
-        self._rst(1)
-        sleep_ms(1)
+        #self._dc(0)
+        #self._rst(1)
+        #sleep_ms(1)
+        #self._rst(0)
+        #sleep_ms(1)
+        #self._rst(1)
+        #sleep_ms(1)
 
         self.write_cmd(SWRESET)
         sleep_ms(150)

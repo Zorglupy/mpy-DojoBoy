@@ -1,7 +1,7 @@
 #
 # MicroPython ILI9341 3.2" TFT Display driver, SPI interfaces for DojoBoy
 #
-#   Display Driver for DojoBoy V1.0 13/01/24
+#   Display Driver for DojoBoy V1.1 25/12/24
 #
 
 from micropython import const
@@ -11,7 +11,7 @@ from framebuf import RGB565
 from time import sleep_ms
 import gc
 
-__version__ = "1.0 13/01/24"
+__version__ = "1.1 25/12/24"
 __repo__ = "https://github.com/zorglupy/dojoboy"
 
 # register definitions

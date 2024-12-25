@@ -1,7 +1,7 @@
 #
 # djbframebuf.py
 # MicroPython framebuf child class for DojoBoy
-# By Yoyo Zorglup 13/01/24
+# By Yoyo Zorglup V1.1 25/12/24
 #
 
 from micropython import const
@@ -10,7 +10,7 @@ from time import sleep_ms, ticks_ms, ticks_diff
 import array
 import dojoboy_v1.fdrawer as FDrawer
 
-__version__ = "1.0 13/01/24"
+__version__ = "1.1 25/12/24"
 __repo__ = "https://github.com/zorglupy/dojoboy"
 
 class djbFrameBuffer(framebuf.FrameBuffer):

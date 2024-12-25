@@ -3,7 +3,7 @@
 # Modified By HalloSpaceBoy for the PicoBoy
 # Modified By Yoyo Zorglup for the DojoBoy
 #
-#   DojoBoy Standard Library v1.0 14/01/24
+#   DojoBoy Standard Library V1.1 25/12/24
 #
 
 from machine import Pin, PWM, Timer, ADC
@@ -12,7 +12,7 @@ from time import sleep_ms, ticks_ms, ticks_diff
 from os import uname
 from micropython import const
 
-__version__ = "v1.0 14/01/24"
+__version__ = "1.1 25/12/24"
 
 
 #
@@ -23,7 +23,7 @@ _MOSI       = const(15)
 _DC         = const(12)
 _CS         = const(13)
 _BL         = const(28)
-_RST        = const(20)
+#_RST        = const(20)
 _B_A        = const(0)
 _B_B        = const(1)
 _B_X        = const(2)
@@ -55,7 +55,7 @@ _MOSI       = const(23)
 _DC         = const(21)
 _CS         = const(5)
 _BL         = const(14)
-_RST        = const(??)
+#_RST        = const(??)
 _B_A        = const(32)
 _B_B        = const(33)
 _B_X        = const(12)
@@ -86,7 +86,7 @@ _MOSI       = const(11)
 _DC         = const(12)
 _CS         = const(10)
 _BL         = const(3)
-_RST        = const(??)
+#_RST        = const(??)
 _B_A        = const(4)
 _B_B        = const(5)
 _B_X        = const(6)
@@ -108,7 +108,7 @@ _CH_BEEP_1  = const(21)
 _TIMER_ID_0 = const(0)
 _TIMER_ID_1 = const(1)
 '''
-
+'''
 #
 #    Display ST7735 160x128 1.8"
 #
@@ -116,16 +116,16 @@ from dojoboy_v1.st7735 import Display
 _LCD_WIDTH      = const(160)
 _LCD_HEIGHT     = const(128)
 _LCD_BAUDRATE   = const(40_000_000)
-
 '''
+
 #
 #   Display ST7789 240x240 1.54"
 #
 from dojoboy_v1.st7789 import Display 
-_LCD_WIDTH      = const(240)
+_LCD_WIDTH      = const(320)
 _LCD_HEIGHT     = const(240)
-_LCD_BAUDRATE   = const(62_500_000)
-'''
+_LCD_BAUDRATE   = const(62_500_000) # 32_500_000 
+
 '''
 #
 #   Display ILI9341 320x240 3.2"
@@ -248,8 +248,9 @@ class DojoBoy():
         print("DojoBoy Module:",__version__)
         
         self.display = Display(width=width, height=height, id_=1, sck=_SCK, mosi=_MOSI,
-                        dc=_DC, cs=_CS, rst=_RST, bl=_BL, baudrate=_LCD_BAUDRATE, framerate=framerate)
-        
+                        dc=_DC, cs=_CS, bl=_BL, baudrate=_LCD_BAUDRATE, framerate=framerate)
+#                       dc=_DC, cs=_CS, rst=_RST, bl=_BL, baudrate=_LCD_BAUDRATE, framerate=framerate)
+         
         #
         #   Analog Controls
         #
@@ -333,16 +334,12 @@ class DojoBoy():
         self.channelLock_0 = False
         self.timer_0 = Timer(_TIMER_ID_0)
         self.timer_0.init(period=refreshBeep, mode=Timer.PERIODIC, callback=self.update_channel_0)
-
         self.channelTimer_1 = ticks_ms()
         self.channelLock_1 = False
         self.timer_1 = Timer(_TIMER_ID_1)
         self.timer_1.init(period=refreshBeep, mode=Timer.PERIODIC, callback=self.update_channel_1)
-
         self.bequiet(0)
         self.bequiet(1)
-                     
-
         
         if show_intro:
             self.show_start_screen()
@@ -457,48 +454,54 @@ class DojoBoy():
         self.vol[channel] = volume
             
     def update_channel_0(self, timer): # Sound      
-        if self.channelLock_0:
-            timer_dif_0 = ticks_diff(ticks_ms(), self.channelTimer_0)
-            if timer_dif_0 > self.soundBuf[0][2]:
-                self.__buzzer[0].duty_u16(0)
-                self.channelLock_0 = False
-                self.soundBuf.pop(0)
-                if len(self.soundBuf) == 0:
-                    self.soundRunning = False
-        else:
-            if len(self.soundBuf) > 0:
-                freq, tone, duration = self.soundBuf[0]
-                self.__buzzer[0].freq(freq if freq else DojoBoy.tones[tone])
-                self.__buzzer[0].duty_u16(DojoBoy.duty[self.vol[0]])
-       
-                self.channelLock_0 = True
-                self.channelTimer_0 = ticks_ms()
+        try:
+            if self.channelLock_0:
+                timer_dif_0 = ticks_diff(ticks_ms(), self.channelTimer_0)
+                if timer_dif_0 > self.soundBuf[0][2]:
+                    self.__buzzer[0].duty_u16(0)
+                    self.channelLock_0 = False
+                    self.soundBuf.pop(0)
+                    if len(self.soundBuf) == 0:
+                        self.soundRunning = False
+            else:
+                if len(self.soundBuf) > 0:
+                    freq, tone, duration = self.soundBuf[0]
+                    self.__buzzer[0].freq(freq if freq else DojoBoy.tones[tone])
+                    self.__buzzer[0].duty_u16(DojoBoy.duty[self.vol[0]])
+           
+                    self.channelLock_0 = True
+                    self.channelTimer_0 = ticks_ms()
+        except KeyboardInterrupt as err:
+            self.timer_0.deinit()            
 
     def update_channel_1(self, timer): # Song
-        if self.songRunning:
-            if self.channelLock_1:
-                timer_dif_1 = ticks_diff(ticks_ms(), self.channelTimer_1)
-                if timer_dif_1 > self.songBuf[self.songIndex+1] * self.songTimeUnit * self.songSpeed:
-                    self.__buzzer[1].duty_u16(0)
-                    self.channelLock_1 = False
-                    self.songIndex += 2
-                    if self.songIndex + 1 > len(self.songBuf): # end of song ?
-                        if self.songLoop:
-                            self.songIndex = 0
-                        else:
-                            self.songRunning = False
-            else:
-                if not self.songBuf[self.songIndex] == 0:
-                    if self.notes:
-                        self.__buzzer[1].freq(DojoBoy.tones[self.songBuf[self.songIndex]])
-                    else :
-                        #print('notes:',self.soundBuf[self.songIndex],'duration:',self.soundBuf[self.songIndex+1])
-                        self.__buzzer[1].freq(self.songBuf[self.songIndex])
-                
-                self.__buzzer[1].duty_u16(DojoBoy.duty[self.vol[1]])
- 
-                self.channelLock_1 = True
-                self.channelTimer_1 = ticks_ms()
+        try:
+            if self.songRunning:
+                if self.channelLock_1:
+                    timer_dif_1 = ticks_diff(ticks_ms(), self.channelTimer_1)
+                    if timer_dif_1 > self.songBuf[self.songIndex+1] * self.songTimeUnit * self.songSpeed:
+                        self.__buzzer[1].duty_u16(0)
+                        self.channelLock_1 = False
+                        self.songIndex += 2
+                        if self.songIndex + 1 > len(self.songBuf): # end of song ?
+                            if self.songLoop:
+                                self.songIndex = 0
+                            else:
+                                self.songRunning = False
+                else:
+                    if not self.songBuf[self.songIndex] == 0:
+                        if self.notes:
+                            self.__buzzer[1].freq(DojoBoy.tones[self.songBuf[self.songIndex]])
+                        else :
+                            #print('notes:',self.soundBuf[self.songIndex],'duration:',self.soundBuf[self.songIndex+1])
+                            self.__buzzer[1].freq(self.songBuf[self.songIndex])
+                    
+                    self.__buzzer[1].duty_u16(DojoBoy.duty[self.vol[1]])
+     
+                    self.channelLock_1 = True
+                    self.channelTimer_1 = ticks_ms()
+        except KeyboardInterrupt as err:
+            self.timer_1.deinit()            
     
     # songbuf = [ djb.start_song, NotesorFreq , timeunit,
     #             freq1, duration1, freq2, duration2,
